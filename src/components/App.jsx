@@ -27,11 +27,8 @@ class App extends Component {
         })
             // response にAPIからのレスポンスが格納される
             .then((response) => {
-                // data にレスポンスから帰ってきた1つ目の記事の情報を格納
-                const data = response.data[0];
                 this.setState({
-                    title: data.title,
-                    url: data.url,
+                    articles: response.data
                 });
                 // コンソールから response と title と url を確認
                 console.debug(response, "ressponse");
@@ -48,6 +45,15 @@ class App extends Component {
         return (
             <div className="App">
                 <h1 className="app-title">Hello Qiita API</h1>
+                {
+                    (this.state.articles != null) && (
+                        this.state.articles.map((article, index) => (
+                            <li key={{index}}>
+                                {article.title}
+                            </li>
+                        ))
+                    )
+                }
                 <Article />
                 <Article />
                 <p>タイトル: {this.state.title}</p>
