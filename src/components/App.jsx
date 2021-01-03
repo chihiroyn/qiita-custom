@@ -17,8 +17,13 @@ class App extends Component {
 
     // QiitaAPIを叩く
     getQiitaPosts() {
+        const env = process.env
+        const token = env.REACT_APP_QIITA_TOKEN
         //axios.get(APIのエンドポイント,パラメータの引数)
         axios.get('https://qiita.com/api/v2/users/chihiroyn/items', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
             params: {
                 "page": "1",
                 "per_page": "20",
