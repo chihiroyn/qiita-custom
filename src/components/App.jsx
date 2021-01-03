@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // axiosをインポート
 import axios from 'axios';
+import Article from "./Article";
 
 class App extends Component {
     constructor(props) {
@@ -47,6 +48,8 @@ class App extends Component {
         return (
             <div className="App">
                 <h1 className="app-title">Hello Qiita API</h1>
+                <Article />
+                <Article />
                 <p>タイトル: {this.state.title}</p>
                 <p>URL: <a target="__blank" href={this.state.url}>{this.state.url}</a></p>
                 <input
