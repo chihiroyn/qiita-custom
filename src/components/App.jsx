@@ -7,19 +7,21 @@ class App extends Component {
         super(props);
         this.getQiitaPosts = this.getQiitaPosts.bind(this);
         this.state = {
-            // ここを`React`など検索したいワードに変えられる
-            query: 'React'
-        }
+            /*
+                // ここを`React`など検索したいワードに変えられる
+                query: 'user:chihiroyn'
+             */
+            }
     }
 
     // QiitaAPIを叩く
     getQiitaPosts() {
         //axios.get(APIのエンドポイント,パラメータの引数)
-        axios.get('https://qiita.com/api/v2/items', {
+        axios.get('https://qiita.com/api/v2/users/chihiroyn/items', {
             params: {
                 "page": "1",
                 "per_page": "20",
-                "query": this.state.query,
+//                "query": this.state.query,
             }
         })
             // response にAPIからのレスポンスが格納される
