@@ -19,6 +19,8 @@ class App extends Component {
     getQiitaPosts() {
         const env = process.env
         const token = env.REACT_APP_QIITA_TOKEN
+        // TODO: アクセストークン付きでAPIを呼べるようにはなったが、大量にエラーが出ている。
+        // 「Rendar title of articles.」コミットでは出ていないので、その後の改修を確認してエラーの原因を調査する。
         //axios.get(APIのエンドポイント,パラメータの引数)
         axios.get('https://qiita.com/api/v2/users/chihiroyn/items', {
             headers: {
